@@ -12,7 +12,7 @@ function initTest() {
     });
 }
 
-function getResult() {
+function getResults() {
 	$.get(_URL + _TOKEN + "&q=" + "@tpcepagenomsplitgroup==Merlot", function(data, status){
 		showResults(data);
 	});

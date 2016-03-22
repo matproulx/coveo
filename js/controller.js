@@ -13,7 +13,7 @@ function initTest() {
 }
 
 function getResults() {
-	$.get(_URL + _TOKEN + "&q=" + "@tpcepagenomsplitgroup==Merlot", function(data, status){
+	$.get(_URL + _TOKEN + "&numberOfResults=200&q=" + "@tpcepagenomsplitgroup==Merlot", function(data, status){
 		showResults(data);
 	});
 }

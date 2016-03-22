@@ -29,7 +29,7 @@ function rangeSliderOnChange(e) {
 function showResults(products) {
 	var dataSource = new kendo.data.DataSource({
         data: products.results,
-        pageSize: 21
+        pageSize: 20
     });
 
     $("#pager").kendoPager({

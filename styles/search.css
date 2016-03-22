@@ -3,7 +3,11 @@ body {
 }
 
 #searchBar {
-	
+	padding-left: 10px;
+}
+
+#keywords {
+	width: 200px;
 }
 
 div.k-widget, div.k-slider
@@ -30,7 +34,12 @@ div.sectionSliderPrice {
 	margin-left: 10px;
 }
 
+#searchQueryResults {
+	display: table-cell;
+    width: 100%;
+}
+
 #results {
-	margin-left: 200px;
     margin-top: 14px;
+    height: 650px;
 }

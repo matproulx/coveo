@@ -7,25 +7,34 @@
 		<title>index</title>
 		<meta name="author" content="MProulx" />
 		<!-- Date: 2016-03-20 -->
+		<link rel="stylesheet" href="styles/kendo.common.min.css" />
+    	<link rel="stylesheet" href="styles/kendo.default.min.css" />
+    	<link rel="stylesheet" href="styles/list.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="kendo.all.min.js"></script>
-		<script src="dbcaller.js"></script>
+		<script src="js/kendo.all.min.js"></script>
+		<script src="js/controller.js"></script>
+		<script src="js/view.js"></script>
 		<script>
 			$(document).ready(function(){
-			    $("#Search").click(function(){
-			    	
-			    	$.get("https://cloudplatform.coveo.com/rest/search?access_token=6318103b-f9da-437c-854b-9e6f1f44e27b&q=@tpcepagenomsplitgroup==Merlot", function(data, status){
-			    		var mydata = data;
-			    	});
-			    });
+			    initTest();
 			});
 		</script>
+		
+		<script type="text/x-kendo-template" id="template">
+	        <div class="product">
+	            <img src="#= raw.tpthumbnailuri#" alt="#:Title # image" />
+	            <h3>#:Title#</h3>
+	            <p>#:kendo.toString(raw.tpprixnormal, "c")#</p>
+	        </div>
+    	</script>
+    
 	</head>
 	<body>
 		<div id="searchBar"><input type="text" id="keywords" maxlength="100"><button id="Search">Search</button></div>
 		<div id="categories" style="float: left;"></div>
 		<div id="results" style="float: left;">
 			<div id="kendoListview"></div>
+			<div id="pager" class="k-pager-wrap"></div>
 		</div>
 	</body>
 </html>

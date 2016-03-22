@@ -8,14 +8,8 @@ var _URL = "https://cloudplatform.coveo.com/rest/search?access_token=";
 
 function initTest() {
 	$("#Search").click(function(){
-    	getResults();
+    	refreshResults();
     });
-}
-
-function getResults() {
-	$.get(_URL + _TOKEN + "&numberOfResults=200&q=" + "@tpcepagenomsplitgroup==Merlot", function(data, status){
-		showResults(data);
-	});
 }
 
 function getPrice() {

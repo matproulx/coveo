@@ -2,6 +2,10 @@
  * @author MProulx
  */
 
+var _dataSource = null;
+var _pager = null;
+var _PAGESIZE = 20;
+
 function initPriceSlider() {
 	var slider = $("#kendoSliderPrice").kendoRangeSlider({
         change: rangeSliderOnChange,
@@ -26,19 +30,57 @@ function rangeSliderOnChange(e) {
     //kendoConsole.log("Change :: new values are: " + e.value.toString().replace(",", " - "));
 }
 
-function showResults(products) {
-	var dataSource = new kendo.data.DataSource({
-        data: products.results,
-        pageSize: 20
+function initListView() {
+	_dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "https://cloudplatform.coveo.com/rest/search",
+                dataType: "json",
+                data: {
+                    access_token: "6318103b-f9da-437c-854b-9e6f1f44e27b",
+                    q: "@tpcepagenomsplitgroup==Merlot",
+                    firstResult: getPagingSkipValue,
+                    numberOfResults: _PAGESIZE
+                }
+            }
+        },
+        schema: {
+            data: "results",
+            total: "totalCount"
+        },
+        pageSize: _PAGESIZE,
+        serverPaging: true,
+        serverSorting: true
     });
 
-    $("#pager").kendoPager({
-        dataSource: dataSource
-    });
+    _pager = $("#pager").kendoPager({
+        dataSource: _dataSource
+    }).getKendoPager();
 
     $("#kendoListview").kendoListView({
-        dataSource: dataSource,
+        dataSource: _dataSource,
         template: kendo.template($("#template").html())
     });
 	
+}
+
+function getPagingSkipValue()
+{
+	if (_pager)	{
+		var currentPage = _pager.page();
+		if (currentPage > 0) {
+			currentPage = currentPage -1;
+		}
+		return currentPage * _pager.pageSize();
+	}
+	else
+		return 0;
+}
+
+function refreshResults() {
+	if (_dataSource) {
+		_dataSource.fetch(function(){
+		   // done
+		});
+	}	
 }

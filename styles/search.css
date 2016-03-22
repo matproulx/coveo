@@ -1,0 +1,36 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#searchBar {
+	
+}
+
+div.k-widget, div.k-slider
+{
+	margin-left: 10px;
+}
+
+div.sectionSliderPrice {
+	margin-bottom: 30px;
+}
+
+#categories {
+	float: left;
+	width: 200px;
+	height: 100%;
+	overflow: auto;
+}
+
+#categories div.sectionTitle {
+	margin-bottom: 10px;
+}
+
+#categories div.sectionCategory {
+	margin-left: 10px;
+}
+
+#results {
+	margin-left: 200px;
+    margin-top: 14px;
+}

@@ -12,8 +12,28 @@ function initTest() {
     });
 }
 
-function getPrice() {
+function refreshResults() {
+	if (_dataSource) {
+		_dataSource.fetch(function(){
+		   // done
+		});
+	}	
+}
+
+function getQueryParams() {
+	var query = "";
+	//query = "(@tpcepagenomsplitgroup==Merlot)" + "(@tpprixnum==0..270)";
+	query = getPrice();
 	
+	return query;
+}
+
+function getPrice() {
+	if (_slider) {
+		return "(@tpprixnum==" + _slider.values()[0] + ".." + _slider.values()[1] + ")";
+	}
+	else
+		return "";
 }
 
 function getKeywords() {

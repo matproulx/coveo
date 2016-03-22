@@ -15,6 +15,10 @@ div.k-widget, div.k-slider
 	margin-left: 10px;
 }
 
+div.k-loading-mask {
+	
+}
+
 div.sectionSliderPrice {
 	margin-bottom: 30px;
 }

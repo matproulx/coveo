@@ -14,10 +14,12 @@
 .productImage {
     height: 260px;
     overflow: hidden;
+    text-align: center;
 }
 
 .product img {
-    width: 175px;
+	max-width: 175px;
+    max-height: 260px;
 }
 
 .productDescription {
@@ -55,8 +57,9 @@
     line-height: 250px;
     vertical-align: middle;
     text-align: center;
+    font-weight: bold;
     color: #fff;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0,0,0,0.60);
     transition: background .2s linear, color .2s linear;
     -moz-transition: background .2s linear, color .2s linear;
     -webkit-transition: background .2s linear, color .2s linear;

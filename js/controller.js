@@ -7,6 +7,13 @@ var _keywords = "";
 var _TOKEN = "6318103b-f9da-437c-854b-9e6f1f44e27b";
 var _URL = "https://cloudplatform.coveo.com/rest/search";
 
+/* ********************* IMPORTANT NOTE *****************************
+ * There seems to be a problem when trying to access the 1000th item 
+ * in the listView.
+ * It then shows no result and I didn't find the problem's cause.
+ * ******************************************************************
+ */
+
 // Initialize the events
 function initEvents() {
 	// Launch search on the click on the search button
@@ -30,6 +37,7 @@ function initEvents() {
 // Called to refresh the results in the list view, from view.js or initTest
 function refreshResults() {
 	if (_dataSource) {
+		_pager.page(0);
 		_dataSource.fetch(function(){
 		   // if callback is needed, place it here
 		});
@@ -54,7 +62,6 @@ function getKeywords() {
 // Called from view.js to get current advanced query parameters to the dataSource
 function getAdvancedQueryParams() {
 	var query = "";
-	//query = "(@tpcepagenomsplitgroup==Merlot)" + "(@tpprixnum==0..270)";
 	query = getPrice() + " " + getCategories();
 	
 	return query;
@@ -71,7 +78,7 @@ function getPrice() {
 
 // Returns all the categories advanced query
 function getCategories() {
-	var categories = getCatDisponibility() + " " + getCatCategory();
+	var categories = getCatDisponibility() + " " + getCatCategory() + " " + getCatCountries();
 	
 	return categories;
 }
@@ -92,6 +99,16 @@ function getCatCategory() {
 	var listValues = getCategoryValues(["catVinRouge", "catVinBlanc", "catVinGrappa", "catVinMousseuxRose", "catVinPineau", "catVinAromatise"]);
 	if (listValues != "")
 		categories = "(@tpcategorie==(" + listValues + "))";
+	
+	return categories;
+}
+
+// Returns the checked countries
+function getCatCountries() {
+	var categories = "";
+	var listValues = getCategoryValues(["catPaysFrance", "catPaysItalie", "catPaysCanada", "catPaysUSA", "catPaysEspagne"]);
+	if (listValues != "")
+		categories = "(@tppays==(" + listValues + "))";
 	
 	return categories;
 }

@@ -31,8 +31,18 @@ div.k-widget, div.k-slider
 	margin-left: 10px;
 }
 
-div.k-loading-mask {
-	
+div.k-slider-selection {
+	background-color: brown!important;
+}
+
+.k-draghandle.k-state-selected:hover, .k-ghost-splitbar-horizontal, 
+.k-ghost-splitbar-vertical, .k-list>.k-state-highlight, 
+.k-list>.k-state-selected, .k-marquee-color, .k-panel>.k-state-selected, 
+.k-scheduler .k-scheduler-toolbar .k-state-selected, .k-scheduler .k-today.k-state-selected,
+.k-state-selected, .k-state-selected:link, .k-state-selected:visited
+ {
+	background-color: brown!important;
+	border-color: brown!important;
 }
 
 div.sectionSliderPrice {

@@ -29,6 +29,10 @@ div.sectionSliderPrice {
 	width: 270px;
 	height: 100%;
 	overflow: auto;
+	padding-left: 10px;
+	padding-bottom: 20px;
+    padding-top: 10px;
+    background-color: lavender;
 }
 
 #categories div.sectionFirstTitle {

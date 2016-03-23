@@ -8,12 +8,21 @@ var _URL = "https://cloudplatform.coveo.com/rest/search";
 
 // Initialize the events
 function initEvents() {
+	// Launch search on the click on the search button
 	$("#Search").click(function(){
     	refreshResults();
     });
     
+    // Listen to the checkbox state change to launch search everytime
     $("input[type='checkbox']").change(function () {
     	refreshResults();
+    });
+    
+    // Launch the search when hitting Enter in the keywords field
+    $("#keywords").keydown(function(event) {
+    	if ( event.which == 13 ) {
+    		refreshResults();
+    	}
     });
 }
 

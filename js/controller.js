@@ -9,7 +9,7 @@ var _URL = "https://cloudplatform.coveo.com/rest/search";
 
 /* ********************* IMPORTANT NOTE *****************************
  * There seems to be a problem when trying to access the 1000th item 
- * in the listView.
+ * in the listView with pager.
  * It then shows no result and I didn't find the problem's cause.
  * ******************************************************************
  */

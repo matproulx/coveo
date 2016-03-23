@@ -10,7 +10,6 @@ var _PAGESIZE = 20;
 function initPriceSlider() {
 	var slider = $("#kendoSliderPrice").kendoRangeSlider({
         change: rangeSliderOnChange,
-        slide: rangeSliderOnSlide,
         min: 0,
         max: 300,
         smallStep: 10,
@@ -23,10 +22,6 @@ function initPriceSlider() {
     _slider.resize();
 }
 
-function rangeSliderOnSlide(e) {
-    //refreshResults();
-}
-
 function rangeSliderOnChange(e) {
     refreshResults();
 }
@@ -35,11 +30,12 @@ function initListView() {
 	_dataSource = new kendo.data.DataSource({
         transport: {
             read: {
-                url: "https://cloudplatform.coveo.com/rest/search",
+                url: _URL,
                 dataType: "json",
                 data: {
-                    access_token: "6318103b-f9da-437c-854b-9e6f1f44e27b",
+                    access_token: _TOKEN,
                     q: getQueryParams,
+                    aq: getAdvancedQueryParams,
                     firstResult: getPagingSkipValue,
                     numberOfResults: _PAGESIZE
                 }

@@ -17,7 +17,7 @@
 		<script src="js/view.js"></script>
 		<script>
 			$(document).ready(function(){
-			    initTest();
+			    initEvents();
 			    initPriceSlider();
 			    initListView();
 			});
@@ -25,16 +25,18 @@
 		
 		<script type="text/x-kendo-template" id="template">
 	        <div class="product">
-	            <img src="#= raw.tpthumbnailuri#" alt="#:Title # image" />
-	            <h3>#:Title#</h3>
-	            <p>#:kendo.toString(raw.tpprixnormal, "c")#</p>
+	            <div class="productImage"><img src="#= raw.tpthumbnailuri#" alt="#:Title # image" /></div>
+	            <div class="productDescription">
+	            	<a href="#= clickUri#"><h3>#:Title#</h3></a>
+	            	<p>#:kendo.toString(raw.tpprixnormal, "c")#</p>
+	            </div>
 	        </div>
     	</script>
     
 	</head>
 	<body>
 		<div id="categories">
-			<div class="sectionTitle">Prix :</div>
+			<div class="sectionFirstTitle">Prix :</div>
 			<div class="sectionSliderPrice">
 				<div id="kendoSliderPrice">
 					<input />
@@ -44,46 +46,17 @@
 			
 			<div class="sectionTitle">Disponibilité :</div>
 			
-			<div class="sectionCategory"><input type="checkbox" id="catDispoSuccursale"> <label for="catDispoSuccursale">En succursale</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catDispoEnLigne"> <label for="catDispoEnLigne">En ligne</label></div>
+			<div class="sectionCategory"><input type="checkbox" id="catDispoSuccursale" value="En Succursale"> <label for="catDispoSuccursale">En succursale</label></div>
+			<div class="sectionCategory"><input type="checkbox" id="catDispoEnLigne" value="En Ligne"> <label for="catDispoEnLigne">En ligne</label></div>
 			
 			<div class="sectionTitle">Catégories :</div>
 			
-			<div class="sectionCategory"><input type="checkbox" id="catVinRouge"> <label for="catVinRouge">Vin Rouge</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinGrappa"> <label for="catVinGrappa">Grappa</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinMousseuxRose"> <label for="catVinMousseuxRose">Vin mousseux rosé</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinPineau"> <label for="catVinPineau">Pineau des Charentes</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinAromatise"> <label for="catVinAromatise">Vin aromatisé</label></div>
-			
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
-			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc"> <label for="catVinBlanc">Vin Blanc</label></div>
+			<div class="sectionCategory"><input type="checkbox" id="catVinRouge" value="Vin Rouge"> <label for="catVinRouge">Vin Rouge</label></div>
+			<div class="sectionCategory"><input type="checkbox" id="catVinBlanc" value="Vin Blanc"> <label for="catVinBlanc">Vin Blanc</label></div>
+			<div class="sectionCategory"><input type="checkbox" id="catVinGrappa" value="Grappa"> <label for="catVinGrappa">Grappa</label></div>
+			<div class="sectionCategory"><input type="checkbox" id="catVinMousseuxRose" value="Vin mousseux rosé"> <label for="catVinMousseuxRose">Vin mousseux rosé</label></div>
+			<div class="sectionCategory"><input type="checkbox" id="catVinPineau" value="Pineau des Charentes rouge"> <label for="catVinPineau">Pineau des Charentes rouge</label></div>
+			<div class="sectionCategory"><input type="checkbox" id="catVinAromatise" value="Vin aromatisé (chocolat)"> <label for="catVinAromatise">Vin aromatisé (chocolat)</label></div>
 		</div>
 		<div id="searchQueryResults">
 			<div id="searchBar"><input type="text" id="keywords" maxlength="100"><button id="Search">Search</button></div>

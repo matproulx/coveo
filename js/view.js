@@ -1,4 +1,5 @@
 /**
+ * View : all functions controlling the view
  * @author MProulx
  */
 
@@ -7,6 +8,7 @@ var _pager = null;
 var _slider = null;
 var _PAGESIZE = 16;
 
+// Initialize the price slider
 function initPriceSlider() {
 	var slider = $("#kendoSliderPrice").kendoRangeSlider({
         change: rangeSliderOnChange,
@@ -22,10 +24,12 @@ function initPriceSlider() {
     _slider.resize();
 }
 
+// Called everytime we let go of the Price range slider
 function rangeSliderOnChange(e) {
     refreshResults();
 }
 
+// Initialize the Kendo ListView that will show the results
 function initListView() {
 	_dataSource = new kendo.data.DataSource({
         transport: {
@@ -61,6 +65,7 @@ function initListView() {
 	
 }
 
+// Returns the skip value to the coveo search API so we skip the proper number of pages specified by the Kendo pager
 function getPagingSkipValue()
 {
 	if (_pager)	{

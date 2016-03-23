@@ -1,4 +1,5 @@
 /**
+ * Controller : all functions controlling the search, querys and main search controls
  * @author MProulx
  */
 
@@ -59,6 +60,7 @@ function getAdvancedQueryParams() {
 	return query;
 }
 
+// Returns the 2 price range values
 function getPrice() {
 	if (_slider) {
 		return "(@tpprixnum==" + _slider.values()[0] + ".." + _slider.values()[1] + ")";
@@ -66,12 +68,15 @@ function getPrice() {
 	else
 		return "";
 }
+
+// Returns all the categories advanced query
 function getCategories() {
 	var categories = getCatDisponibility() + " " + getCatCategory();
 	
 	return categories;
 }
 
+// Returns the disponibility checked categories
 function getCatDisponibility() {
 	var categories = "";
 	var listValues = getCategoryValues(["catDispoSuccursale", "catDispoEnLigne"]);
@@ -81,6 +86,7 @@ function getCatDisponibility() {
 	return categories;
 }
 
+// Returns the main checked categories
 function getCatCategory() {
 	var categories = "";
 	var listValues = getCategoryValues(["catVinRouge", "catVinBlanc", "catVinGrappa", "catVinMousseuxRose", "catVinPineau", "catVinAromatise"]);
@@ -90,7 +96,7 @@ function getCatCategory() {
 	return categories;
 }
 
-// Returns a strign containing all checked category values, separated by , OR empty string 
+// Returns a string containing all checked category values, separated by , OR empty string 
 function getCategoryValues(listCategories) {
 	var values = "";
 	

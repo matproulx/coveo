@@ -9,7 +9,7 @@ var _URL = "https://cloudplatform.coveo.com/rest/search";
 // Initialize the events
 function initEvents() {
 	// Launch search on the click on the search button
-	$("#Search").click(function(){
+	$("#search").click(function(){
     	refreshResults();
     });
     

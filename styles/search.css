@@ -3,12 +3,27 @@ body {
 	font-size: 14px;
 }
 
+#search {
+	font-size: 22px;
+    font-weight: bold;
+    color: brown;
+    top: 2px;
+    padding-left: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+#search:hover {
+	color:black;
+}
+
 #searchBar {
 	padding-left: 10px;
 }
 
 #keywords {
-	width: 200px;
+	width: 400px;
+    font-size: 18px;
 }
 
 div.k-widget, div.k-slider

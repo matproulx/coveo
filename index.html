@@ -7,6 +7,7 @@
 		<title>index</title>
 		<meta name="author" content="MProulx" />
 		<!-- Date: 2016-03-20 -->
+		<link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="styles/kendo.common.min.css" />
     	<link rel="stylesheet" href="styles/kendo.default.min.css" />
     	<link rel="stylesheet" href="styles/search.css" />
@@ -28,6 +29,8 @@
 	            <div class="productImage"><img src="#= raw.tpthumbnailuri#" alt="#:Title # image" /></div>
 	            <div class="productDescription">
 	            	<a href="#= clickUri#"><h3>#:Title#</h3></a>
+	            	<span>#:kendo.toString(raw.tpformat)#</span><br/>
+	            	<span>#:kendo.toString(raw.tppays)# (#:kendo.toString(raw.tpregion)#)</span>
 	            	<p>#:kendo.toString(raw.tpprixnormal, "c")#</p>
 	            </div>
 	        </div>
@@ -59,7 +62,7 @@
 			<div class="sectionCategory"><input type="checkbox" id="catVinAromatise" value="Vin aromatisé (chocolat)"> <label for="catVinAromatise">Vin aromatisé (chocolat)</label></div>
 		</div>
 		<div id="searchQueryResults">
-			<div id="searchBar"><input type="text" id="keywords" maxlength="100"><button id="Search">Search</button></div>
+			<div id="searchBar"><input type="text" id="keywords" maxlength="100"><span id="search" class="fa fa-search"></span></div>
 			<div id="results">
 				<div id="kendoListview"></div>
 				<div id="pager" class="k-pager-wrap"></div>

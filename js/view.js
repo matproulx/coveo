@@ -5,7 +5,7 @@
 var _dataSource = null;
 var _pager = null;
 var _slider = null;
-var _PAGESIZE = 20;
+var _PAGESIZE = 16;
 
 function initPriceSlider() {
 	var slider = $("#kendoSliderPrice").kendoRangeSlider({
